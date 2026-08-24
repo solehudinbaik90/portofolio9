@@ -7,8 +7,8 @@ export default function Contact() {
     <>
       <Title
         variant="creative"
-        pageName="Contacts"
-        typingData={['<span class="typed-bread"><a href="/">Home</a> / Contact</span>']}
+        pageName="Kontak"
+        typingData={['<span class="typed-bread"><a href="/">Beranda</a> / Contact</span>']}
       />
 
       <div className="section contacts" id="next_section">
@@ -35,4 +35,4 @@ export default function Contact() {
   );
 }
 
-Contact.pageTitle = "Contact";
+Contact.pageTitle = "Kontak";
