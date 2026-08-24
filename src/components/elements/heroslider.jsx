@@ -6,36 +6,38 @@ import "swiper/css/effect-fade";
 export default function HeroSlider({ images }) {
   const handleSlideChange = (swiper) => {
     const realIndex = swiper.realIndex;
-    const slides = swiper.slides;
-
-    if (!slides || slides.length === 0) return;
+    const total = swiper.slides.length;
+    const slides = document.querySelectorAll(".started-carousel .swiper-slide");
 
     slides.forEach((slide, idx) => {
-      if (realIndex >= idx) {
+      if (realIndex - 1 >= idx) {
         slide.classList.add("swiper-clip-active");
       } else {
         slide.classList.remove("swiper-clip-active");
       }
     });
 
+
+    slides.forEach((slide, idx) => {
+      slide.style.zIndex = total - idx;
+    });
   };
 
   return (
     <div className="started-carousel">
       <Swiper
         modules={[EffectFade, Autoplay]}
-        loop={true}
+        loop={false}
         spaceBetween={0}
         effect="fade"
-        fadeEffect={{ crossFade: true }}
         slidesPerView={1}
         simulateTouch={false}
-        autoplay={{ delay: 6000, disableOnInteraction: false }}
+        autoplay={{ delay: 6000, disableOnInteraction: false, waitForTransition: false }}
         onSlideChange={handleSlideChange}
         className="swiper-container"
       >
         {images.map((src, i) => (
-          <SwiperSlide key={`${src}-${i}`} className={i === 0 ? "swiper-clip-active" : ""}>
+          <SwiperSlide key={src} className={i === 0 ? "swiper-clip-active" : ""}>
             <div className="main-img" style={{ backgroundImage: `url(${src})` }} />
           </SwiperSlide>
         ))}
