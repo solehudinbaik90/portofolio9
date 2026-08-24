@@ -39,7 +39,7 @@ export default function Resume() {
 
       <div className="section service" id="section-services">
         <div className="content">
-          <div className="title"><div className="title_inner">Services</div></div>
+          <div className="title"><div className="title_inner">Layanan</div></div>
           <div className="service-items">
             {services.map((s) => (
               <div className="service-col" key={s.name}>
@@ -57,7 +57,7 @@ export default function Resume() {
 
       <div className="section pricing" id="section-pricing">
         <div className="content">
-          <div className="title"><div className="title_inner">Pricing Table</div></div>
+          <div className="title"><div className="title_inner">Tabel Harga</div></div>
           <div className="pricing-items">
             {pricing.map((p) => (
               <div className="pricing-col" key={p.name}>
@@ -77,7 +77,7 @@ export default function Resume() {
                     </ul>
                   </div>
                   <div className="bts">
-                    <a href="/contact" className="btn hover-animated"><span className="circle" /><span className="lnk">Buy Now</span></a>
+                    <a href="/contact" className="btn hover-animated"><span className="circle" /><span className="lnk">Pesan Segera</span></a>
                   </div>
                 </div>
               </div>
@@ -90,7 +90,7 @@ export default function Resume() {
         <div className="content">
           <div className="cols">
             <div className="col col-md">
-              <div className="title"><div className="title_inner">Experience</div></div>
+              <div className="title"><div className="title_inner">Pengalaman</div></div>
               <div className="resume-items">
                 {experience.map((e, idx) => (
                   <div
@@ -105,7 +105,7 @@ export default function Resume() {
               </div>
             </div>
             <div className="col col-md">
-              <div className="title"><div className="title_inner">Education</div></div>
+              <div className="title"><div className="title_inner">Pendidikan</div></div>
               <div className="resume-items">
                 {education.map((e) => (
                   <div className="resume-item content-box" key={e.name}>
@@ -120,7 +120,7 @@ export default function Resume() {
 
       <div className="section skills" id="section-skills">
         <div className="content">
-          <div className="title"><div className="title_inner">Design Skills</div></div>
+          <div className="title"><div className="title_inner">Keterampilan</div></div>
           <div className="skills percent content-box">
             <ul>
               {designSkills.map((s) => (
@@ -138,7 +138,7 @@ export default function Resume() {
 
       <div className="section skills" id="section-skills-code">
         <div className="content">
-          <div className="title"><div className="title_inner">Coding Skills</div></div>
+          <div className="title"><div className="title_inner">Keterampilan Desain</div></div>
           <div className="skills circles content-box">
             <ul>
               {codingSkills.map((s) => (
@@ -158,7 +158,7 @@ export default function Resume() {
 
       <div className="section skills" id="section-skills-know">
         <div className="content">
-          <div className="title"><div className="title_inner">Knowledge</div></div>
+          <div className="title"><div className="title_inner">Pengetahuan</div></div>
           <div className="skills list content-box">
             <ul>{knowledge.map((k) => <li key={k}><div className="name">{k}</div></li>)}</ul>
           </div>
@@ -185,7 +185,7 @@ export default function Resume() {
 
       <div className="section team" id="section-team">
         <div className="content">
-          <div className="title"><div className="title_inner">Our Team</div></div>
+          <div className="title"><div className="title_inner">Tim Kita</div></div>
           <div className="team-items">
             {team.map((t) => (
               <div className="team-col" key={t.name}>
@@ -211,7 +211,7 @@ export default function Resume() {
 
       <div className="section clients" id="section-clients">
         <div className="content">
-          <div className="title"><div className="title_inner">Clients</div></div>
+          <div className="title"><div className="title_inner">Klien</div></div>
           <div className="content-box">
             <div className="clients-items">
               {clients.map((c) => (
