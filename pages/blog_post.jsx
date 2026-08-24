@@ -54,7 +54,7 @@ export default function BlogPost() {
               </div>
               <div className="post-text-bottom">
                 <div className="social-share">
-                  <span>Share:</span>
+                  <span>Bagikan:</span>
                   <a className="share-btn share-btn-facebook share-btn-1" title="Share on Facebook"><i className="fab fa-facebook" /></a>
                   <a className="share-btn share-btn-twitter share-btn-2" title="Share on Twitter"><i className="fab fa-twitter" /></a>
                   <a className="share-btn share-btn-linkedin share-btn-3" title="Share on Linkedin"><i className="fab fa-linkedin" /></a>
@@ -62,9 +62,9 @@ export default function BlogPost() {
                   <a className="share-btn share-btn-pinterest share-btn-5" title="Share on Pinterest"><i className="fab fa-pinterest" /></a>
                 </div>
                 <div className="cat-links">
-                  <span>Posted in </span>
+                  <span>Terbit di </span>
                   <a href={`/categories/${post.categorySlug}`}>{post.category}</a>
-                  <span className="byline"> / by <span className="author">{post.author}</span></span>
+                  <span className="byline"> / oleh <span className="author">{post.author}</span></span>
                 </div>
                 <div className="tags-links">
                   <span>Tags:</span>
@@ -77,12 +77,12 @@ export default function BlogPost() {
             <div className="nav-links">
               <div className="nav-previous">
                 <Link href={`/blog_post?slug=${post.navigation.prev.slug}`} legacyBehavior>
-                  <a title={post.navigation.prev.title}><span className="post-nav-next post-nav-text">Prev</span></a>
+                  <a title={post.navigation.prev.title}><span className="post-nav-next post-nav-text">Mundur</span></a>
                 </Link>
               </div>
               <div className="nav-next">
                 <Link href={`/blog_post?slug=${post.navigation.next.slug}`} legacyBehavior>
-                  <a title={post.navigation.next.title}><span className="post-nav-prev post-nav-text">Next</span></a>
+                  <a title={post.navigation.next.title}><span className="post-nav-prev post-nav-text">Maju</span></a>
                 </Link>
               </div>
             </div>
@@ -94,4 +94,4 @@ export default function BlogPost() {
   );
 }
 
-BlogPost.pageTitle = "Blog Post";
+BlogPost.pageTitle = "Post Artikel";
