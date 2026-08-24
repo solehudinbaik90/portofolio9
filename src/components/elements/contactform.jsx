@@ -29,24 +29,24 @@ export default function ContactForm() {
     <div className="contact_form content-box">
       <form id="cform" method="post" onSubmit={handleSubmit}>
         <div className="group-val">
-          <input type="text" name="name" placeholder="Name" value={form.name} onChange={handleChange} required />
+          <input type="text" name="name" placeholder="Nama" value={form.name} onChange={handleChange} required />
         </div>
         <div className="group-val">
           <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} required />
         </div>
         <div className="group-val ct-gr">
-          <textarea name="message" placeholder="Message" value={form.message} onChange={handleChange} required />
+          <textarea name="message" placeholder="Pesan" value={form.message} onChange={handleChange} required />
         </div>
         <div className="group-bts">
           <button type="submit" className="btn hover-animated" disabled={status === "sending"}>
             <span className="circle" />
-            <span className="lnk">{status === "sending" ? "Sending..." : "Send Message"}</span>
+            <span className="lnk">{status === "sending" ? "Sending..." : "Kirim"}</span>
           </button>
         </div>
       </form>
       {status === "success" && (
         <div className="alert-success">
-          <p>Thanks, your message is sent successfully.</p>
+          <p>Terima kasih, pesan anda berhasil terkirim.</p>
         </div>
       )}
     </div>
