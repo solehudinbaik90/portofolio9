@@ -29,7 +29,7 @@ export default function HeroSlider({ images }) {
       <Swiper
         modules={[EffectFade, Autoplay]}
         init={false}
-        loop={false}
+        loop={true}
         spaceBetween={0}
         effect="fade"
         slidesPerView={1}
