@@ -8,7 +8,7 @@ const PortfolioItems = dynamic(() => import("../src/components/works/portfolioit
 export default function Works() {
   return (
     <>
-      <Title variant="creative" pageName="works" extraClass="typed-subtitle" />
+      <Title variant="creative" pageName="proyek" extraClass="typed-subtitle" />
       <div className="section works" id="section-portfolio">
         <div className="content">
           <PortfolioItems />
@@ -19,4 +19,4 @@ export default function Works() {
   );
 }
 
-Works.pageTitle = "Works";
+Works.pageTitle = "Proyek";
