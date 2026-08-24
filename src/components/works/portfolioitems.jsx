@@ -171,7 +171,7 @@ function WorkItem({ item, setRef }) {
                 <p>{item.extraDescription}</p>
                 <a className="btn hover-animated" href={item.link}>
                   <span className="circle" />
-                  <span className="lnk">View Project</span>
+                  <span className="lnk">Lihat Proyek</span>
                 </a>
               </div>
             </div>
