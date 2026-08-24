@@ -78,7 +78,7 @@ img.mfp-img {
 }
 
 #grained_container:before {
-    background-image: url('/assets/bg1');
+    background-image: url('../assets/bg1');
     position: absolute;
     content: "";
     height: 300%;
