@@ -4,7 +4,7 @@ const post = {
   banner: "/images/blog/blog_4.jpg",
   category: "Edukasi",
   author: "Muhamad Soleh",
-  tags: ["fisika"],
+  tags: ["Fisika"],
   body: [
     { type: "p", text: "Fisika sering kali dianggap sebagai momok yang menakutkan oleh sebagian besar siswa karena tumpukan rumus yang rumit. Padahal, inti dari belajar fisika adalah memahami bagaimana alam semesta ini bekerja melalui fenomena di sekitar kita. Salah satu konsep paling mendasar yang wajib dikuasai dengan logis adalah Hukum Newton tentang gerak." },
     { type: "p", text: "Alih-alih langsung menghafal rumus matematis seperti F = m.a, mari kita bedah konsep ini lewat kejadian sehari-hari. Mengapa tubuh kita terdorong ke depan saat bus tiba-tiba direm mendadak? Mengapa lemari yang berat lebih susah digeser dibanding kursi kayu? Semua jawaban dari pertanyaan tersebut tersimpan rapi dalam hukum alam yang ditemukan oleh Sir Isaac Newton." },
