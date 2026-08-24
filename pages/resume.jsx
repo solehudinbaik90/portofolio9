@@ -65,7 +65,7 @@ export default function Resume() {
                   <div className="icon"><span className={`fas ${p.icon}`} /></div>
                   <div className="name">{p.name}</div>
                   <div className="amount">
-                    <span className="number"><span className="dollar">$</span><span>{p.price}</span><span className="period">hour</span></span>
+                    <span className="number"><span className="dollar">$</span><span>{p.price}</span><span className="period">jam</span></span>
                   </div>
                   <div className="feature-list">
                     <ul>
@@ -77,7 +77,7 @@ export default function Resume() {
                     </ul>
                   </div>
                   <div className="bts">
-                    <a href="/contact" className="btn hover-animated"><span className="circle" /><span className="lnk">Pesan Segera</span></a>
+                    <a href="/contact" className="btn hover-animated"><span className="circle" /><span className="lnk">Order Sekarang</span></a>
                   </div>
                 </div>
               </div>
@@ -167,7 +167,7 @@ export default function Resume() {
 
       <div className="section service" id="section-interests">
         <div className="content">
-          <div className="title"><div className="title_inner">Interests</div></div>
+          <div className="title"><div className="title_inner">Hobi</div></div>
           <div className="service-items">
             {interests.map((i) => (
               <div className="service-col" key={i.name}>
@@ -225,7 +225,7 @@ export default function Resume() {
 
       <div className="section custom-text" id="section-custom-text">
         <div className="content">
-          <div className="title"><div className="title_inner">Custom Text</div></div>
+          <div className="title"><div className="title_inner">Kata Bijak</div></div>
           <div className="content-box"><div className="single-post-text">{customText.map((p) => <p key={p}>{p}</p>)}</div></div>
           <div className="clear" />
         </div>
