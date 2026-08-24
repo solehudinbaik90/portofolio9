@@ -1,5 +1,5 @@
 import HeroSlider from "../src/components/elements/heroslider";
-import TypingSubtitle from "../src/components/elements/typingsubtitle";
+import TypingSubtitle from "../src/components/elements/typingsubtitle2";
 
 const heroImages = [
   "/images/slide/slide1.jpg",
