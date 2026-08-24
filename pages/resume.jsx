@@ -10,7 +10,7 @@ import {
 export default function Resume() {
   return (
     <>
-      <Title variant="creative" pageName="Resume" typingData={['<span class="typed-bread"><a href="/">Home</a> / Resume</span>']} />
+      <Title variant="creative" pageName="Resume" typingData={['<span class="typed-bread"><a href="/">Beranda</a> / Resume</span>']} />
 
       <div className="section about" id="next_section">
         <div className="content content-box">
