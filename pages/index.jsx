@@ -24,7 +24,8 @@ export default function Home() {
               <br />
               Desain Grafis Website dari Tanjakan Mekar.
             </h1>
-            <TypingSubtitle />
+            <TypingSubtitle extraClassName="h-subtitle" />
+            <span className="typed-subtitle" />
           </div>
         </div>
       </div>
