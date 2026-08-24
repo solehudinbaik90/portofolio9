@@ -29,7 +29,7 @@ export default function LanguageSkills() {
     <div className="section skills" id="section-skills-lang" ref={ref}>
       <div className="content">
         <div className="title">
-          <div className="title_inner">Keterampilan Bahasa</div>
+          <div className="title_inner">Languages Skills</div>
         </div>
         <div className="skills percent content-box">
           <ul>
