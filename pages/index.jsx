@@ -33,4 +33,4 @@ export default function Home() {
   );
 }
 
-Home.pageTitle = "Home";
+Home.pageTitle = "Beranda";
