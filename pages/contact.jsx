@@ -13,7 +13,7 @@ export default function Contact() {
 
       <div className="section contacts" id="next_section">
         <div className="content">
-          <div className="title"><div className="title_inner">Contacts Info</div></div>
+          <div className="title"><div className="title_inner">Hubungi Kami</div></div>
           <div className="service-items">
             <div className="service-col"><div className="service-item content-box"><div className="icon"><span className="fas fa-phone" /></div><div className="name">Phone</div><div className="text">{contact.phone}</div></div></div>
             <div className="service-col"><div className="service-item content-box"><div className="icon"><span className="fas fa-envelope" /></div><div className="name">Email</div><div className="text"><a href={`mailto:${contact.email}`}>{contact.email}</a></div></div></div>
@@ -26,7 +26,7 @@ export default function Contact() {
 
       <div className="section contacts" id="section-contacts">
         <div className="content">
-          <div className="title"><div className="title_inner">Contacts Form</div></div>
+          <div className="title"><div className="title_inner">Kirim Pesan</div></div>
           <ContactForm />
         </div>
         <div className="clear" />
