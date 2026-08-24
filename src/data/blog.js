@@ -7,12 +7,12 @@ const posts = [
 ];
 
 export const categories = [
-  { name: "Design", count: 2 },
-  { name: "Mobile", count: 1 },
-  { name: "Music", count: 2 },
+  { name: "Edukasi", count: 2 },
+  { name: "Desain", count: 1 },
+  { name: "Inspirasi", count: 2 },
   { name: "Video", count: 1 },
 ];
 
-export const tags = ["jekyll", "app", "mobile", "code", "rock", "Jekyll"];
+export const tags = ["IPA", "Fisika", "Edukasi", "Inspirasi", "Guru", "Rumus"];
 
 export default posts;
