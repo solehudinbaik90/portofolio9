@@ -8,10 +8,10 @@ export default function Blog() {
   const filtered = posts.filter((p) => (p?.title || "").toLowerCase().includes((query || "").toLowerCase()));
   return (
     <>
-      <Title variant="section-title" pageName="Blog" typingData={['<span class="typed-bread"><a href="/">Home</a> / Blog</span>']} />
+      <Title variant="section-title" pageName="Artikel" typingData={['<span class="typed-bread"><a href="/">Beranda</a> / Blog</span>']} />
       <div className="section blog">
         <div className="content">
-          <div className="title"><div className="title_inner">Latest Posts</div></div>
+          <div className="title"><div className="title_inner">Artikel Terbaru</div></div>
           <div className="blog-items">
             {filtered.map((post) => (
               <div className="blog-col" key={post.slug}>
@@ -48,11 +48,11 @@ export default function Blog() {
                 </form>
               </div>
               <section className="widget widget_recent_entries">
-                <h2 className="widget-title">Latest Posts</h2>
+                <h2 className="widget-title">Artikel Terbaru</h2>
                 <ul>{posts.slice(0, 4).map((p) => <li key={p.slug}><Link href={`/blog_post?slug=${p.slug}`}><a>{p.title}</a></Link></li>)}</ul>
               </section>
               <section className="widget widget_categories">
-                <h2 className="widget-title">Categories</h2>
+                <h2 className="widget-title">Kategori</h2>
                 <ul>{categories.map((c) => <li key={c.name}><a href="#">{c.name}</a> <small>({c.count})</small></li>)}</ul>
               </section>
               <section className="widget widget_tags">
@@ -68,4 +68,4 @@ export default function Blog() {
   );
 }
 
-Blog.pageTitle = "Blog";
+Blog.pageTitle = "Artikel";
