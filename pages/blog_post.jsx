@@ -63,13 +63,19 @@ export default function BlogPost() {
                 </div>
                 <div className="cat-links">
                   <span>Terbit di </span>
-                  <a href={`/categories/${post.categorySlug}`}>{post.category}</a>
-                  <span className="byline"> / oleh <span className="author">{post.author}</span></span>
-                </div>
-                <div className="tags-links">
-                  <span>Tags:</span>
-                  {post.tags.map((t) => <a key={t} href={`/tags/${t}`} rel="tag">{t}</a>)}
-                </div>
+                  <Link href={`/blog?category=${encodeURIComponent(post.category)}`}>
+                    <a>{post.category}</a>
+                 </Link>
+                 <span className="byline"> / oleh <span className="author">{post.author}</span></span>
+               </div>
+               <div className="tags-links">
+                 <span>Tags:</span>
+                 {post.tags.map((t) => (
+                   <Link key={t} href={`/blog?tag=${encodeURIComponent(t)}`}>
+                     <a rel="tag">{t}</a>
+                  </Link>
+                  ))}
+               </div>
               </div>
             </div>
           </div>
