@@ -14,8 +14,6 @@ export default function PortfolioItems() {
     [filter]
   );
 
-  // two-column masonry, mirrors the "position:absolute; left/top" pattern
-  // produced by the original bundle's portfolio grid
   useLayoutEffect(() => {
     const columns = 2;
     const colHeights = new Array(columns).fill(0);
@@ -35,27 +33,46 @@ export default function PortfolioItems() {
     }
   }, [visibleWorks]);
 
-  // wire up the same jQuery plugins the original bundle relies on for popups
   useEffect(() => {
-    let cancelled = false;
+  let cancelled = false;
 
-    (async () => {
-      const [{ default: $ }] = await Promise.all([import("jquery"), import("magnific-popup")]);
-      if (cancelled) return;
+  (async () => {
+    const [{ default: $ }] = await Promise.all([import("jquery"), import("magnific-popup")]);
+    if (cancelled) return;
 
-      $(".has-popup-gallery").magnificPopup({ type: "image", gallery: { enabled: true } });
-      $(".has-popup-video").magnificPopup({ type: "iframe" });
-      $(".has-popup-music").magnificPopup({ type: "iframe" });
-      $(".has-popup-image").magnificPopup({ type: "image" });
-      $(".has-popup-media").magnificPopup({ type: "inline" });
-    })();
+    $(".has-popup-gallery").each(function () {
+      const $trigger = $(this);
+      if ($trigger.data("mfpInitialized")) return;
 
-    return () => {
-      cancelled = true;
-    };
-  }, [visibleWorks]);
+      const targetSelector = $trigger.attr("href");
+      const items = $(targetSelector)
+        .find("a")
+        .map(function () {
+          return { src: $(this).attr("href"), type: "image" };
+        })
+        .get();
 
-  // simpleParallax on each thumbnail, matches the transform/scale seen in the bundle
+      if (!items.length) return;
+
+      $trigger.magnificPopup({
+        items,
+        type: "image",
+        gallery: { enabled: true },
+      });
+      $trigger.data("mfpInitialized", true);
+    });
+
+    $(".has-popup-video").magnificPopup({ type: "iframe" });
+    $(".has-popup-music").magnificPopup({ type: "iframe" });
+    $(".has-popup-image").magnificPopup({ type: "image" });
+    $(".has-popup-media").magnificPopup({ type: "inline" });
+  })();
+
+  return () => {
+    cancelled = true;
+  };
+}, [visibleWorks]);
+
   useEffect(() => {
     let instance;
     (async () => {
