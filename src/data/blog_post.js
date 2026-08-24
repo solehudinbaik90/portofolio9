@@ -23,7 +23,7 @@ const post = {
   ],
   navigation: {
     prev: { title: "Penerapan Metode STEM dalam Pembelajaran Fisika Kurikulum", slug: "penerapan-metode-stem-kurikulum" },
-    next: { title: "Strategi Ampuh Lolos OSN Fisika Tingkat Kabupaten hingga Nasional", slug: "strategi-ampuh-lolos-osn-fisika", slug: "strategi-ampuh-lolos-osn-fisika" },
+    next: { title: "Strategi Ampuh Lolos OSN Fisika Tingkat Kabupaten hingga Nasional", slug: "strategi-ampuh-lolos-osn-fisika" },
   },
 };
 
