@@ -94,4 +94,4 @@ export default function BlogPost() {
   );
 }
 
-BlogPost.pageTitle = "Post Artikel";
+BlogPost.pageTitle = "Detail Artikel";
