@@ -5,8 +5,7 @@ import posts, { categories, tags } from "../src/data/blog";
 
 export default function Blog() {
   const [query, setQuery] = useState("");
-  const filtered = posts.filter((p) => p.title.toLowerCase().includes(query.toLowerCase()));
-
+  const filtered = posts.filter((p) => (p?.title || "").toLowerCase().includes((query || "").toLowerCase()));
   return (
     <>
       <Title variant="section-title" pageName="Blog" typingData={['<span class="typed-bread"><a href="/">Home</a> / Blog</span>']} />
