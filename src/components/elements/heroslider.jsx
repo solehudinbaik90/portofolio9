@@ -30,7 +30,7 @@ export default function HeroSlider({ images }) {
     <div className="started-carousel">
       <Swiper
         modules={[EffectFade, Autoplay]}
-        loop={true}
+        loop={false}
         spaceBetween={0}
         effect="fade"
         slidesPerView={1}
