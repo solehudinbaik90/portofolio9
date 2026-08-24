@@ -1,6 +1,6 @@
 {
   "short_name": "Msoleh Portofolio",
-  "name": "muhamad Soleh – Personal Portfolio",
+  "name": "Muhamad Soleh – Personal Portfolio",
   "icons": [{ "src": "/favicon.ico", "sizes": "64x64", "type": "image/x-icon" }],
   "start_url": "/",
   "display": "standalone",
