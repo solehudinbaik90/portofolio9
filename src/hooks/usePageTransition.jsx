@@ -1,60 +1,47 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 export default function usePageTransition() {
-  const [isTransitioning, setIsTransitioning] = useState(true);
+  const [status, setStatus] = useState("idle"); // 'idle' | 'loading' | 'ready' | 'finish'
   const router = useRouter();
-  const timers = useRef([]);
-
-  const clearTimers = () => {
-    timers.current.forEach(clearTimeout);
-    timers.current = [];
-  };
-
-  const playReveal = () => {
-    clearTimers();
-    document.querySelector(".lines")?.classList.remove("ready", "finish");
-
-    timers.current.push(
-      setTimeout(() => {
-        document.querySelector(".lines")?.classList.add("ready");
-      }, 3000)
-    );
-
-    timers.current.push(
-      setTimeout(() => {
-        setIsTransitioning(false);
-        document.querySelector(".lines")?.classList.add("finish");
-      }, 1000)
-    );
-  };
 
   useEffect(() => {
-    playReveal();
-    return clearTimers;
-
+    // Jalankan preloader saat pertama kali web dimuat
+    setStatus("ready");
+    const initTimer = setTimeout(() => setStatus("finish"), 1000); // Sesuaikan durasi CSS
+    return () => clearTimeout(initTimer);
   }, []);
 
   useEffect(() => {
+    let finishTimer;
+
     const handleStart = () => {
-      clearTimers();
-      document.querySelector(".lines")?.classList.remove("ready", "finish");
-      setIsTransitioning(true);
+      clearTimeout(finishTimer);
+      setStatus("loading");
     };
 
-    const handleDone = () => playReveal();
+    const handleDone = () => {
+      setStatus("ready");
+      // Berikan jeda kecil agar class 'ready' sempat di-render oleh browser sebelum masuk 'finish'
+      finishTimer = setTimeout(() => {
+        setStatus("finish");
+      }, 300); 
+    };
 
     router.events.on("routeChangeStart", handleStart);
     router.events.on("routeChangeComplete", handleDone);
     router.events.on("routeChangeError", handleDone);
 
     return () => {
+      clearTimeout(finishTimer);
       router.events.off("routeChangeStart", handleStart);
       router.events.off("routeChangeComplete", handleDone);
       router.events.off("routeChangeError", handleDone);
     };
-
   }, [router]);
 
-  return isTransitioning;
+  return {
+    isTransitioning: status !== "finish",
+    transitionStatus: status // Gunakan string ini untuk memetakan class CSS Anda
+  };
 }
