@@ -47,7 +47,7 @@ export const pricing = [
 ];
 
 export const experience = [
-  { date: "2019 - Sekarang", name: "Guru Fisika Senior - SMA Pinggir Jurang.", text: "Mengembangkan modul ajar interaktif dan memimpin laboratorium fisika sekolah." },
+  { date: "2019 - 2026", name: "Guru Fisika Senior - SMA Pinggir Jurang.", text: "Mengembangkan modul ajar interaktif dan memimpin laboratorium fisika sekolah." },
   { date: "2015 - 2019", name: "Tutor Pembina Olimpiade - Lembaga Bimbingan Belajar.", text: "Melatih siswa tingkat SMA untuk persiapan kompetisi OSN Fisika tingkat kota dan nasional." },
   { date: "2013 - 2015", name: "Asisten Laboratorium Fisika - Sekolah tanpa nama.", text: "Mengelola alat praktikum mekanika, termodinamika, dan membimbing eksperimen mahasiswa." },
 ];
