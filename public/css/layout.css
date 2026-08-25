@@ -18,7 +18,7 @@
 	- Popups
 */
 
-/* - Header */
+/* - Header (updated) */
 .header {
   padding: 50px;
   position: fixed;
@@ -26,17 +26,42 @@
   top: 0;
   width: 100%;
   z-index: 100;
-  transition: all 0.7s cubic-bezier(0.165, 0.85, 0.45, 1);
-  -moz-transition: all 0.7s cubic-bezier(0.165, 0.85, 0.45, 1);
-  -webkit-transition: all 0.7s cubic-bezier(0.165, 0.85, 0.45, 1);
-  -o-transition: all 0.7s cubic-bezier(0.165, 0.85, 0.45, 1);
+
+  /* Use specific transitions for better performance */
+  transition: opacity 0.4s ease, visibility 0s linear 0s, background 0.3s ease, transform 0.3s ease;
+  -moz-transition: opacity 0.4s ease, visibility 0s linear 0s, background 0.3s ease, transform 0.3s ease;
+  -webkit-transition: opacity 0.4s ease, visibility 0s linear 0s, background 0.3s ease, transform 0.3s ease;
+  -o-transition: opacity 0.4s ease, visibility 0s linear 0s, background 0.3s ease, transform 0.3s ease;
+
+  opacity: 1;
+  visibility: visible;
+  will-change: opacity, transform;
 }
 
+/* JS-friendly classes to hide/show the header */
+.header.header--transitioning,
+.header--transitioning,
+.header--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  /* shorter opacity transition; visibility delayed to match opacity end */
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  -moz-transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  -webkit-transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  -o-transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+/* keep full original behaviour for fixed state but with specific transitions */
 .header.fixed {
   padding-top: 30px;
   padding-bottom: 30px;
   top: 0;
   background: #101010;
+  transition: background 0.3s ease, padding 0.25s ease;
+  -moz-transition: background 0.3s ease, padding 0.25s ease;
+  -webkit-transition: background 0.3s ease, padding 0.25s ease;
+  -o-transition: background 0.3s ease, padding 0.25s ease;
 }
 
 .header:after {
@@ -332,6 +357,12 @@
   height: 100%;
   background: #101010;
   -webkit-overflow-scrolling: touch;
+
+  /* ensure active -> visible uses same opacity/visibility system */
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.35s ease, visibility 0s linear 0s, background 0.3s ease;
 }
 
 .header.active .menu-btn:before {
@@ -508,6 +539,15 @@
 
   .wp-block-media-text .wp-block-media-text__content {
     padding: 0;
+  }
+}
+
+/* Accessibility: respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .header * {
+    transition: none !important;
+    animation: none !important;
   }
 }
 
