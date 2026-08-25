@@ -20,7 +20,7 @@ export default function TypingSubtitle({ typingData, extraClass }) {
         showCursor: false,
       });
       return () => typed.destroy();
-    }, 3200);
+    }, 10200);
     return () => clearTimeout(timer);
   }, []);
 
