@@ -181,17 +181,3 @@ img.mfp-img {
         transform: translate(-10%,10%)
     }}
 
-
-.header {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.4s ease, visibility 0s linear 0s;
-  will-change: opacity;
-}
-
-.header.header--transitioning {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
-}
