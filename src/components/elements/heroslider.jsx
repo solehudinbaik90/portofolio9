@@ -20,24 +20,27 @@ export default function HeroSlider({ images }) {
     slides.forEach((slide, idx) => {
       slide.style.zIndex = total - idx;
     });
+
+    swiper.init();
   };
 
   return (
     <div className="started-carousel">
       <Swiper
         modules={[EffectFade, Autoplay]}
+        init={false}
         loop={false}
-        rewind={true}
         spaceBetween={0}
         effect="fade"
         slidesPerView={1}
         simulateTouch={false}
+        navigation={false}
         autoplay={{ delay: 6000, disableOnInteraction: false, waitForTransition: false }}
         onSlideChange={handleSlideChange}
         className="swiper-container"
       >
         {images.map((src, i) => (
-          <SwiperSlide key={src} className={i === 0 ? "swiper-clip-active" : ""}>
+          <SwiperSlide key={`${src}-${i}`} className={i === 0 ? "swiper-clip-active" : ""}>
             <div className="main-img" style={{ backgroundImage: `url(${src})` }} />
           </SwiperSlide>
         ))}
