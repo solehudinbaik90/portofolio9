@@ -8,19 +8,30 @@ export default function Header() {
   const router = useRouter();
 
   const isActive = (path) =>
-    path === "/" ? router.pathname === "/" : router.pathname.startsWith(path);
+    path === "/" ? router.asPath === "/" : router.asPath.startsWith(path);
+
+  const handleNavigation = (e, path) => {
+    e.preventDefault(); 
+    setIsOpen(false);
+    router.push(path);
+  };
 
   const renderMenu = () => (
     <div className="menu-top-menu-container">
       <ul className="menu">
         {menuData.map((item) => (
-          <li key={item.id} className="menu-item">
-            <Link href={item.path}>
-              <a className={isActive(item.path) ? "active" : ""}>
-                <span className="mask-lnk">{item.title}</span>
-                <span className="mask-lnk mask-lnk-hover">{item.title}</span>
-              </a>
-            </Link>
+          <li 
+            key={item.id} 
+            className={`menu-item ${isActive(item.path) ? "current-menu-item" : ""}`}
+          >
+            <a 
+              href={item.path} 
+              className={isActive(item.path) ? "active" : ""}
+              onClick={(e) => handleNavigation(e, item.path)}
+            >
+              <span className="mask-lnk">{item.title}</span>
+              <span className="mask-lnk mask-lnk-hover">{item.title}</span>
+            </a>
           </li>
         ))}
       </ul>
@@ -29,7 +40,6 @@ export default function Header() {
 
   return (
     <>
-      {/* Mobile Header */}
       <header className={`header mobileHeader ${isOpen ? "active" : ""}`}>
         <div className="head-top">
           <button 
@@ -40,12 +50,10 @@ export default function Header() {
             <span />
           </button>
           <div className="logo hover-masks-logo">
-            <Link href="#">
-              <a>
-                <span className="mask-lnk">Muhamad <strong>Soleh</strong></span>
-                <span className="mask-lnk mask-lnk-hover">Download <strong>CV</strong></span>
-              </a>
-            </Link>
+            <a href="/" onClick={(e) => handleNavigation(e, "/")}>
+              <span className="mask-lnk">Muhamad <strong>Soleh</strong></span>
+              <span className="mask-lnk mask-lnk-hover">Download <strong>CV</strong></span>
+            </a>
           </div>
 
           <div className="top-menu hover-masks">
@@ -54,16 +62,13 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Desktop Header */}
       <header className="header desktopHeader">
         <div className="head-top">
           <div className="logo hover-masks-logo">
-            <Link href="#">
-              <a>
-                <span className="mask-lnk">Muhamad <strong>Soleh</strong></span>
-                <span className="mask-lnk mask-lnk-hover">Download <strong>CV</strong></span>
-              </a>
-            </Link>
+            <a href="/" onClick={(e) => handleNavigation(e, "/")}>
+              <span className="mask-lnk">Muhamad <strong>Soleh</strong></span>
+              <span className="mask-lnk mask-lnk-hover">Download <strong>CV</strong></span>
+            </a>
           </div>
 
           <div className="top-menu hover-masks">
