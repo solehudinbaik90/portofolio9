@@ -15,7 +15,7 @@ export default function Header({ isTransitioning }) {
     path === "/" ? router.pathname === "/" : router.pathname.startsWith(path);
 
   const renderMenu = () => (
-    <div className="menu-topmenu-container">
+    <div className="menu-top-menu-container">
       <ul className="menu">
         {menuData.map((item) => (
           <li key={item.id} className="menu-item">
