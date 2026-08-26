@@ -1,46 +1,45 @@
+"use client";
+
+import { useState, useCallback } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
 export default function HeroSlider({ images }) {
-  const handleSlideChange = (swiper) => {
-    const realIndex = swiper.realIndex;
-    const total = swiper.slides.length;
-    const slides = document.querySelectorAll(".started-carousel .swiper-slide");
+  const [activeIndex, setActiveIndex] = useState(0);
 
-    slides.forEach((slide, idx) => {
-      if (realIndex - 1 >= idx) {
-        slide.classList.add("swiper-clip-active");
-      } else {
-        slide.classList.remove("swiper-clip-active");
-      }
-    });
-
-    slides.forEach((slide, idx) => {
-      slide.style.zIndex = total - idx;
-    });
-
-    swiper.init();
-  };
+  const handleRealIndexChange = useCallback((swiper) => {
+    setActiveIndex(swiper.realIndex);
+  }, []);
 
   return (
     <div className="started-carousel">
       <Swiper
         modules={[EffectFade, Autoplay]}
-        init={false}
         loop={false}
+        rewind={true}
         spaceBetween={0}
         effect="fade"
         slidesPerView={1}
         simulateTouch={false}
         navigation={false}
-        autoplay={{ delay: 6000, disableOnInteraction: false, waitForTransition: false }}
-        onSlideChange={handleSlideChange}
+        speed={1000}
+        autoplay={{
+          delay: 6000,
+          disableOnInteraction: false,
+          waitForTransition: false,
+          enabled: true,
+        }}
+        onRealIndexChange={handleRealIndexChange}
         className="swiper-container"
       >
         {images.map((src, i) => (
-          <SwiperSlide key={`${src}-${i}`} className={i === 0 ? "swiper-clip-active" : ""}>
+          <SwiperSlide
+            key={src}
+            className={i < activeIndex ? "swiper-clip-active" : i === 0 ? "swiper-clip-active" : ""}
+            style={{ zIndex: images.length - i }}
+          >
             <div className="main-img" style={{ backgroundImage: `url(${src})` }} />
           </SwiperSlide>
         ))}
