@@ -1,11 +1,11 @@
 export const personalInfo = {
   name: "Muhamad Soleh",
   bio: "Halo! Saya Muhamad Soleh. Guru fisika dari Indonesia, Tamgerang Saya punya banyak pengalaman dalam mengajar dan eksperimen sains, saya juga ahli desain. Senang diskusi dengan Anda tentang metode unik.",
-  age: 24,
+  age: 40,
   residence: "Indonesia",
   freelance: "Tersedia",
   address: "Tanjakan Mekar",
-  phone: "++62 8874 3313 0861",
+  phone: "+62 8874 3313 0861",
   email: "solehudinz3692@gmail.com",
   photo: "/images/resume/msoleh.jpg",
 };
